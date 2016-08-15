@@ -8,7 +8,7 @@
 
 <title>
   
-    彙整: 2016
+    Archive: 2016
   
 </title>
 
@@ -76,21 +76,21 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">類別</a>
+                <a href="javascript:;">Category</a>
                 <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/tan/">tan</a><span class="category-list-count">2</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">標籤</a>
+                <a href="javascript:;">Tag</a>
                 
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">彙整</a>
+                <a href="javascript:;">Archive</a>
                 <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">4</span></li></ul>
               </li>
             
@@ -183,11 +183,10 @@
       </div>
       <div class="article-entry">
         
-          <p>##字符串的组合 from《剑指offer》面试题28思考题</p>
+          <h2 id="字符串的组合-from《剑指offer》面试题28思考题"><a href="#字符串的组合-from《剑指offer》面试题28思考题" class="headerlink" title="字符串的组合 from《剑指offer》面试题28思考题"></a>字符串的组合 from《剑指offer》面试题28思考题</h2><hr>
+<h3 id="题目简介："><a href="#题目简介：" class="headerlink" title="题目简介："></a>题目简介：</h3><p>输入一个字符串，输出该字符串中字符的所有组合。举个例子，如果输入abc，它的组合有a、b、c、ab、ac、bc、abc</p>
 <hr>
-<p>###题目简介：<br>输入一个字符串，输出该字符串中字符的所有组合。举个例子，如果输入abc，它的组合有a、b、c、ab、ac、bc、abc</p>
-<hr>
-<p>###思路：<br>假设我们想在长度为n的字符串中求m个字符的组合。我们先从头扫描字符串的第一个字符。针对第一个字符，我们有两种选择：第一是把这个字符放到组合中去，接下来我们需要在剩下的n-1个字符中选取m-1个字符；第二是不把这个字符放到组合中去，接下来我们需要在剩下的n-1个字符中选择m个字符。这两种选择都很容易用递归实现。下面是这种思路的参考代码：</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>假设我们想在长度为n的字符串中求m个字符的组合。我们先从头扫描字符串的第一个字符。针对第一个字符，我们有两种选择：第一是把这个字符放到组合中去，接下来我们需要在剩下的n-1个字符中选取m-1个字符；第二是不把这个字符放到组合中去，接下来我们需要在剩下的n-1个字符中选择m个字符。这两种选择都很容易用递归实现。下面是这种思路的参考代码：</p>
 <hr>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span>  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span>  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span>  </span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;assert.h&gt;</span>  </span></div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Combination</span><span class="params">(<span class="keyword">char</span> *<span class="built_in">string</span> ,<span class="keyword">int</span> number,<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; &amp;result)</span></span>;  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Combination</span><span class="params">(<span class="keyword">char</span> *<span class="built_in">string</span>)</span>  </span></div><div class="line">&#123;  </div><div class="line">    assert(<span class="built_in">string</span> != <span class="literal">NULL</span>);  </div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; result;  </div><div class="line">    <span class="keyword">int</span> i , length = <span class="built_in">strlen</span>(<span class="built_in">string</span>);  </div><div class="line">    <span class="keyword">for</span>(i = <span class="number">1</span> ; i &lt;= length ; ++i)  </div><div class="line">        Combination(<span class="built_in">string</span> , i ,result);  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Combination</span><span class="params">(<span class="keyword">char</span> *<span class="built_in">string</span> ,<span class="keyword">int</span> number , <span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; &amp;result)</span>  </span></div><div class="line">&#123;  </div><div class="line">    assert(<span class="built_in">string</span> != <span class="literal">NULL</span>);  </div><div class="line">    <span class="keyword">if</span>(number == <span class="number">0</span>)  </div><div class="line">    &#123;  </div><div class="line">        <span class="keyword">static</span> <span class="keyword">int</span> num = <span class="number">1</span>;  </div><div class="line">        <span class="built_in">printf</span>(<span class="string">"第%d个组合\t"</span>,num++);  </div><div class="line">  </div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;::iterator iter = result.begin();  </div><div class="line">        <span class="keyword">for</span>( ; iter != result.end() ; ++iter)  </div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%c"</span>,*iter);  </div><div class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);  </div><div class="line">        <span class="keyword">return</span> ;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">if</span>(*<span class="built_in">string</span> == <span class="string">'\0'</span>)  </div><div class="line">        <span class="keyword">return</span> ;  </div><div class="line">    result.push_back(*<span class="built_in">string</span>);  </div><div class="line">    Combination(<span class="built_in">string</span> + <span class="number">1</span> , number - <span class="number">1</span> , result);  </div><div class="line">    result.pop_back();  </div><div class="line">    Combination(<span class="built_in">string</span> + <span class="number">1</span> , number , result);  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">char</span> str[] = <span class="string">"abc"</span>;  </div><div class="line">    Combination(str);  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
